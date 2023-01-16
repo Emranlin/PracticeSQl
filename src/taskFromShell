@@ -1,0 +1,467 @@
+Server [localhost]:
+Database [postgres]:
+Port [5432]:
+Username [postgres]: postgres
+Password for user postgres:
+psql (15.1)
+WARNING: Console code page (437) differs from Windows code page (1252)
+         8-bit characters might not work correctly. See psql reference
+         page "Notes for Windows users" for details.
+Type "help" for help.
+
+postgres=# select * from books;
+ id |              name               |    country    | published_year | price |   genre   | language_id | publisher_id | author_id
+----+---------------------------------+---------------+----------------+-------+-----------+-------------+--------------+-----------
+  1 | Taina                           | Russia        | 2021-11-04     |   568 | DETECTIVE |           5 |           12 |         6
+  2 | Zvezdopad                       | Russia        | 2004-12-09     |   446 | ROMANCE   |           5 |           13 |        11
+  3 | Homo Faber                      | Germany       | 2022-04-08     |   772 | FANTASY   |           3 |            5 |         3
+  4 | Der Richter und Sein Henker     | Germany       | 2011-02-01     |   780 | DETECTIVE |           3 |            3 |        10
+  5 | Lord of the Flies               | United States | 2015-07-01     |   900 | FANTASY   |           1 |            2 |         4
+  6 | Un soir au club                 | France        | 2018-01-08     |   480 | DRAMA     |           2 |            1 |         1
+  7 | Voina                           | Russia        | 2004-12-06     |   880 | HISTORY   |           5 |            4 |        13
+  8 | Sun Tzu                         | China         | 2022-09-05     |   349 | HISTORY   |           4 |            4 |         2
+  9 | Emil und die Detektive          | Germany       | 2010-06-11     |   228 | DETECTIVE |           3 |            5 |        10
+ 10 | Coule la Seine                  | France        | 2015-03-01     |   732 | FANTASY   |           2 |            6 |         1
+ 11 | Love and hatred                 | Russia        | 2012-02-03     |   763 | ROMANCE   |           5 |           14 |        13
+ 12 | Fantastic Mr Fox                | United States | 2018-03-04     |   309 | FANTASY   |           1 |            9 |         8
+ 13 | Contes de la BΘcasse            | France        | 2019-10-05     |   378 | ROMANCE   |           2 |            6 |         9
+ 14 | "The Death of Ivan Ilyich       | Russia        | 2000-09-04     |   814 | DRAMA     |           5 |            6 |         6
+ 15 | Bonjour Tristesse               | France        | 2015-08-02     |   502 | ROMANCE   |           2 |            8 |         5
+ 16 | Die Verwandlung                 | Germany       | 2008-06-09     |   305 | DETECTIVE |           3 |            7 |        12
+ 17 | The Inspector Barlach Mysteries | Germany       | 2007-03-10     |   566 | DETECTIVE |           3 |            3 |         3
+ 18 | L╔tranger                       | France        | 2017-11-04     |   422 | ROMANCE   |           2 |            8 |         5
+ 19 | Lao Tse                         | China         | 2005-07-06     |   900 | FANTASY   |           4 |            4 |         2
+ 20 | Semya                           | Russia        | 2004-04-02     |   194 | DRAMA     |           5 |           13 |        11
+ 21 | Empty World                     | United States | 2008-01-04     |   324 | FANTASY   |           1 |           11 |        15
+ 22 | Domainer                        | Germany       | 2020-01-06     |   420 | ROMANCE   |           3 |            5 |        10
+ 23 | The Fault in Our Stars          | United States | 2008-02-03     |   396 | ROMANCE   |           1 |            9 |         4
+ 24 | Die R uber                      | Germany       | 2020-06-05     |   300 | ROMANCE   |           3 |            7 |        12
+ 25 | Jung Chang                      | China         | 2021-05-04     |   600 | HISTORY   |           4 |           10 |         7
+ 26 | Les Aventures de Tintin         | France        | 2015-04-10     |   582 | DRAMA     |           2 |            1 |         5
+ 27 | Unvollendete Geschichte         | Germany       | 2010-12-12     |   269 | DETECTIVE |           3 |            5 |        10
+ 28 | Amy Tan                         | China         | 2023-01-09     |   486 | DRAMA     |           4 |            4 |         7
+ 29 | Krasnaya luna                   | Russia        | 2020-02-07     |   550 | FANTASY   |           5 |           12 |        11
+ 30 | Emma                            | United States | 2021-10-08     |   599 | BIOGRAPHY |           1 |            2 |        15
+(30 rows)
+
+
+postgres=#
+postgres=# select name,genre,published_year from books;
+              name               |   genre   | published_year
+---------------------------------+-----------+----------------
+ Taina                           | DETECTIVE | 2021-11-04
+ Zvezdopad                       | ROMANCE   | 2004-12-09
+ Homo Faber                      | FANTASY   | 2022-04-08
+ Der Richter und Sein Henker     | DETECTIVE | 2011-02-01
+ Lord of the Flies               | FANTASY   | 2015-07-01
+ Un soir au club                 | DRAMA     | 2018-01-08
+ Voina                           | HISTORY   | 2004-12-06
+ Sun Tzu                         | HISTORY   | 2022-09-05
+ Emil und die Detektive          | DETECTIVE | 2010-06-11
+ Coule la Seine                  | FANTASY   | 2015-03-01
+ Love and hatred                 | ROMANCE   | 2012-02-03
+ Fantastic Mr Fox                | FANTASY   | 2018-03-04
+ Contes de la BΘcasse            | ROMANCE   | 2019-10-05
+ "The Death of Ivan Ilyich       | DRAMA     | 2000-09-04
+ Bonjour Tristesse               | ROMANCE   | 2015-08-02
+ Die Verwandlung                 | DETECTIVE | 2008-06-09
+ The Inspector Barlach Mysteries | DETECTIVE | 2007-03-10
+ L╔tranger                       | ROMANCE   | 2017-11-04
+ Lao Tse                         | FANTASY   | 2005-07-06
+ Semya                           | DRAMA     | 2004-04-02
+ Empty World                     | FANTASY   | 2008-01-04
+ Domainer                        | ROMANCE   | 2020-01-06
+ The Fault in Our Stars          | ROMANCE   | 2008-02-03
+ Die R uber                      | ROMANCE   | 2020-06-05
+ Jung Chang                      | HISTORY   | 2021-05-04
+ Les Aventures de Tintin         | DRAMA     | 2015-04-10
+ Unvollendete Geschichte         | DETECTIVE | 2010-12-12
+ Amy Tan                         | DRAMA     | 2023-01-09
+ Krasnaya luna                   | FANTASY   | 2020-02-07
+ Emma                            | BIOGRAPHY | 2021-10-08
+(30 rows)
+
+
+postgres=#
+postgres=# select distinc(country) from authors;
+ERROR:  function distinc(character varying) does not exist
+LINE 1: select distinc(country) from authors;
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+postgres=# select distinct(country) from authors;
+    country
+---------------
+ France
+ United States
+ China
+ Spain
+ Germany
+ Russia
+(6 rows)
+
+
+postgres=# select * from books where publisher_year between '01-01-2022' and '01-01-2023';
+ERROR:  column "publisher_year" does not exist
+LINE 1: select * from books where publisher_year between '01-01-2022...
+                                  ^
+HINT:  Perhaps you meant to reference the column "books.published_year".
+postgres=# select * from books where published_year between '01-01-2022' and '01-01-2023';
+ id |    name    | country | published_year | price |  genre  | language_id | publisher_id | author_id
+----+------------+---------+----------------+-------+---------+-------------+--------------+-----------
+  3 | Homo Faber | Germany | 2022-04-08     |   772 | FANTASY |           3 |            5 |         3
+  8 | Sun Tzu    | China   | 2022-09-05     |   349 | HISTORY |           4 |            4 |         2
+(2 rows)
+
+
+postgres=# select concat(first_name,last_name) as author from authors;
+       author
+--------------------
+ SybillaToderbrugge
+ PattiWalster
+ SonnieEmmens
+ BrandBurel
+ SilvanSmartman
+ AlexeyArnov
+ BunniAggio
+ VioleSarath
+ BoigieEtridge
+ HilliardBurnsyde
+ MargaritaBartova
+ InnisHugh
+ LeraTrimnella
+ JakobBransby
+ LorettaGronaver
+(15 rows)
+
+
+postgres=# select concat(first_name,last_name) as full_name,country from authors where country in'France','Germany' orderr by full_name;
+ERROR:  syntax error at or near "'France'"
+LINE 1: ...as full_name,country from authors where country in'France','...
+                                                             ^
+postgres=# select concat(first_name,last_name) as full_name,country from authors where country in('France','Germany') orderr by full_name desc;
+ERROR:  syntax error at or near "orderr"
+LINE 1: ...from authors where country in('France','Germany') orderr by ...
+                                                             ^
+postgres=# select concat(first_name,last_name) as full_name,country from authors where country in ('France','Germany') order by  full_name desc;
+     full_name      | country
+--------------------+---------
+ SybillaToderbrugge | France
+ SonnieEmmens       | Germany
+ SilvanSmartman     | France
+ InnisHugh          | Germany
+ HilliardBurnsyde   | Germany
+ BoigieEtridge      | France
+(6 rows)
+
+
+postgres=# select name,country,published_year,price,genre  from books where genre <>'Romance' and price >500;
+ERROR:  invalid input value for enum genre: "Romance"
+LINE 1: ...lished_year,price,genre  from books where genre <>'Romance' ...
+                                                             ^
+postgres=# select name,country,published_year,price,genre from books where genre <> 'ROMANCE' and price >500;
+              name               |    country    | published_year | price |   genre
+---------------------------------+---------------+----------------+-------+-----------
+ Taina                           | Russia        | 2021-11-04     |   568 | DETECTIVE
+ Homo Faber                      | Germany       | 2022-04-08     |   772 | FANTASY
+ Der Richter und Sein Henker     | Germany       | 2011-02-01     |   780 | DETECTIVE
+ Lord of the Flies               | United States | 2015-07-01     |   900 | FANTASY
+ Voina                           | Russia        | 2004-12-06     |   880 | HISTORY
+ Coule la Seine                  | France        | 2015-03-01     |   732 | FANTASY
+ "The Death of Ivan Ilyich       | Russia        | 2000-09-04     |   814 | DRAMA
+ The Inspector Barlach Mysteries | Germany       | 2007-03-10     |   566 | DETECTIVE
+ Lao Tse                         | China         | 2005-07-06     |   900 | FANTASY
+ Jung Chang                      | China         | 2021-05-04     |   600 | HISTORY
+ Les Aventures de Tintin         | France        | 2015-04-10     |   582 | DRAMA
+ Krasnaya luna                   | Russia        | 2020-02-07     |   550 | FANTASY
+ Emma                            | United States | 2021-10-08     |   599 | BIOGRAPHY
+(13 rows)
+
+
+postgres=# select  * from authors where gender='Female' fetch first 3 row only;
+ id | first_name |  last_name  |         email          | date_of_birth | country | gender
+----+------------+-------------+------------------------+---------------+---------+--------
+  1 | Sybilla    | Toderbrugge | stoderbrugge0@jugem.jp | 1968-09-02    | France  | Female
+  2 | Patti      | Walster     | pwalster1@addtoany.com | 1965-10-01    | China   | Female
+  7 | Bunni      | Aggio       | baggio6@yahoo.co.jp    | 1983-12-03    | China   | Female
+(3 rows)
+
+
+postgres=# select * from authors where gender='Female' and email like'%com' and aouthors.first_name like '_____';
+ERROR:  missing FROM-clause entry for table "aouthors"
+LINE 1: ...rs where gender='Female' and email like'%com' and aouthors.f...
+                                                             ^
+postgres=# select * from authors where gender='Female' and email like '%com' and authors.first_name like'____';
+ id | first_name | last_name |       email        | date_of_birth | country | gender
+----+------------+-----------+--------------------+---------------+---------+--------
+ 13 | Lera       | Trimnella | ltrimnellc@msn.com | 1980-03-08    | Russia  | Female
+(1 row)
+
+
+postgres=# select country ,count(country) from authors group by country;
+    country    | count
+---------------+-------
+ France        |     3
+ United States |     3
+ China         |     2
+ Spain         |     1
+ Germany       |     3
+ Russia        |     3
+(6 rows)
+
+
+postgres=# select country,count(country) from authors where country having count(country)=3;
+ERROR:  argument of WHERE must be type boolean, not type character varying
+LINE 1: select country,count(country) from authors where country hav...
+                                                         ^
+postgres=# select country,count(country) from authors where country having count(country)=3;
+ERROR:  argument of WHERE must be type boolean, not type character varying
+LINE 1: select country,count(country) from authors where country hav...
+                                                         ^
+postgres=# select country,count(authors) from authors group by country where count(country)=3 order by country;
+ERROR:  syntax error at or near "where"
+LINE 1: ...ntry,count(authors) from authors group by country where coun...
+                                                             ^
+postgres=# select country,count(authors) from authors group by country where having count(country)=3 order by country;
+ERROR:  syntax error at or near "where"
+LINE 1: ...ntry,count(authors) from authors group by country where havi...
+                                                             ^
+postgres=# select  country,count(authors)from authors  group by country having count(authors)=3 order by country;
+    country    | count
+---------------+-------
+ France        |     3
+ Germany       |     3
+ Russia        |     3
+ United States |     3
+(4 rows)
+
+
+postgres=# select count(gengre) from books group by gengre;
+ERROR:  column "gengre" does not exist
+LINE 1: select count(gengre) from books group by gengre;
+                     ^
+HINT:  Perhaps you meant to reference the column "books.genre".
+postgres=# select gengre,sum(price) from books group by genre;
+ERROR:  column "gengre" does not exist
+LINE 1: select gengre,sum(price) from books group by genre;
+               ^
+HINT:  Perhaps you meant to reference the column "books.genre".
+postgres=# select genre,sum(price) from books group by genre;
+   genre   | sum
+-----------+------
+ FANTASY   | 4487
+ ROMANCE   | 3627
+ BIOGRAPHY |  599
+ DRAMA     | 2556
+ HISTORY   | 1829
+ DETECTIVE | 2716
+(6 rows)
+
+
+postgres=# select genre, min(price) from books where genre in('DETECTIVE',ROMANCE') group by genre;
+postgres'# '
+postgres(# '
+postgres'# select genre,min(price) from books where genre in('DETECTIVE','ROMANCE') group by genre,price;
+postgres'# ';
+postgres(# );
+ERROR:  syntax error at or near "DETECTIVE"
+LINE 4: ...elect genre,min(price) from books where genre in('DETECTIVE'...
+                                                             ^
+postgres=# select genre, min(price) from books where genre in ('DETECTIVE','ROMANCE')group by genre,price;
+   genre   | min
+-----------+-----
+ DETECTIVE | 228
+ DETECTIVE | 269
+ DETECTIVE | 305
+ DETECTIVE | 566
+ DETECTIVE | 568
+ DETECTIVE | 780
+ ROMANCE   | 300
+ ROMANCE   | 378
+ ROMANCE   | 396
+ ROMANCE   | 420
+ ROMANCE   | 422
+ ROMANCE   | 446
+ ROMANCE   | 502
+ ROMANCE   | 763
+(14 rows)
+
+
+postgres=# select genre,count(genre) from book group by genre;
+ERROR:  relation "book" does not exist
+LINE 1: select genre,count(genre) from book group by genre;
+                                       ^
+postgres=# select genre,count(genre) from books group by genre;
+   genre   | count
+-----------+-------
+ FANTASY   |     7
+ ROMANCE   |     8
+ BIOGRAPHY |     1
+ DRAMA     |     5
+ HISTORY   |     3
+ DETECTIVE |     6
+(6 rows)
+
+
+postgres=# select genre ,count(genre) from books where genre in ('BIOGRAPHY','HISTORY')group by genre;
+   genre   | count
+-----------+-------
+ HISTORY   |     3
+ BIOGRAPHY |     1
+(2 rows)
+
+
+postgres=# select * from authors left join books b on authors.id=b.author_id left join publishers p on b.publisher_id=p.id;
+ id | first_name |  last_name  |           email            | date_of_birth |    country    | gender | id |              name               |    country    | published_year | price |   genre   | language_id | publisher_id | author_id | id |                name
+----+------------+-------------+----------------------------+---------------+---------------+--------+----+---------------------------------+---------------+----------------+-------+-----------+-------------+--------------+-----------+----+-------------------------------------
+  6 | Alexey     | Arnov       | larnoldi5@writer.com       | 1964-12-12    | Russia        | Male   |  1 | Taina                           | Russia        | 2021-11-04     |   568 | DETECTIVE |           5 |           12 |         6 | 12 | Grupo Planeta
+ 11 | Margarita  | Bartova     | mbartova@example.com       | 1984-12-03    | Russia        | Female |  2 | Zvezdopad                       | Russia        | 2004-12-09     |   446 | ROMANCE   |           5 |           13 |        11 | 13 | Books.Ru Ltd.St Petersburg
+  3 | Sonnie     | Emmens      | semmens2@upenn.edu         | 1980-05-06    | Germany       | Male   |  3 | Homo Faber                      | Germany       | 2022-04-08     |   772 | FANTASY   |           3 |            5 |         3 |  5 | Wolters Kluwer
+ 10 | Hilliard   | Burnsyde    | hburnsyde9@omniture.com    | 1962-09-08    | Germany       | Male   |  4 | Der Richter und Sein Henker     | Germany       | 2011-02-01     |   780 | DETECTIVE |           3 |            3 |        10 |  3 | Holtzbrinck Publishing Group
+  4 | Brand      | Burel       | bburel3@ovh.net            | 1964-04-10    | United States | Male   |  5 | Lord of the Flies               | United States | 2015-07-01     |   900 | FANTASY   |           1 |            2 |         4 |  2 | Thomson Reuters
+  1 | Sybilla    | Toderbrugge | stoderbrugge0@jugem.jp     | 1968-09-02    | France        | Female |  6 | Un soir au club                 | France        | 2018-01-08     |   480 | DRAMA     |           2 |            1 |         1 |  1 | RELX Group
+ 13 | Lera       | Trimnella   | ltrimnellc@msn.com         | 1980-03-08    | Russia        | Female |  7 | Voina                           | Russia        | 2004-12-06     |   880 | HISTORY   |           5 |            4 |        13 |  4 | Shanghai Jiao Tong University Press
+  2 | Patti      | Walster     | pwalster1@addtoany.com     | 1965-10-01    | China         | Female |  8 | Sun Tzu                         | China         | 2022-09-05     |   349 | HISTORY   |           4 |            4 |         2 |  4 | Shanghai Jiao Tong University Press
+ 10 | Hilliard   | Burnsyde    | hburnsyde9@omniture.com    | 1962-09-08    | Germany       | Male   |  9 | Emil und die Detektive          | Germany       | 2010-06-11     |   228 | DETECTIVE |           3 |            5 |        10 |  5 | Wolters Kluwer
+  1 | Sybilla    | Toderbrugge | stoderbrugge0@jugem.jp     | 1968-09-02    | France        | Female | 10 | Coule la Seine                  | France        | 2015-03-01     |   732 | FANTASY   |           2 |            6 |         1 |  6 | Hachette Livre
+ 13 | Lera       | Trimnella   | ltrimnellc@msn.com         | 1980-03-08    | Russia        | Female | 11 | Love and hatred                 | Russia        | 2012-02-03     |   763 | ROMANCE   |           5 |           14 |        13 | 14 | The Moscow Times
+  8 | Viole      | Sarath      | vsarath7@elegantthemes.com | 1960-01-09    | United States | Female | 12 | Fantastic Mr Fox                | United States | 2018-03-04     |   309 | FANTASY   |           1 |            9 |         8 |  9 | Harper Collins
+  9 | Boigie     | Etridge     | betridge8@ed.gov           | 1978-11-07    | France        | Male   | 13 | Contes de la BΘcasse            | France        | 2019-10-05     |   378 | ROMANCE   |           2 |            6 |         9 |  6 | Hachette Livre
+  6 | Alexey     | Arnov       | larnoldi5@writer.com       | 1964-12-12    | Russia        | Male   | 14 | "The Death of Ivan Ilyich       | Russia        | 2000-09-04     |   814 | DRAMA     |           5 |            6 |         6 |  6 | Hachette Livre
+  5 | Silvan     | Smartman    | ssmartman4@spiegel.de      | 1967-07-03    | France        | Male   | 15 | Bonjour Tristesse               | France        | 2015-08-02     |   502 | ROMANCE   |           2 |            8 |         5 |  8 | Macmillan
+ 12 | Innis      | Hugh        | ihughb@marriott.com        | 1983-08-08    | Germany       | Male   | 16 | Die Verwandlung                 | Germany       | 2008-06-09     |   305 | DETECTIVE |           3 |            7 |        12 |  7 | Aufbau-Verlag
+  3 | Sonnie     | Emmens      | semmens2@upenn.edu         | 1980-05-06    | Germany       | Male   | 17 | The Inspector Barlach Mysteries | Germany       | 2007-03-10     |   566 | DETECTIVE |           3 |            3 |         3 |  3 | Holtzbrinck Publishing Group
+  5 | Silvan     | Smartman    | ssmartman4@spiegel.de      | 1967-07-03    | France        | Male   | 18 | L╔tranger                       | France        | 2017-11-04     |   422 | ROMANCE   |           2 |            8 |         5 |  8 | Macmillan
+  2 | Patti      | Walster     | pwalster1@addtoany.com     | 1965-10-01    | China         | Female | 19 | Lao Tse                         | China         | 2005-07-06     |   900 | FANTASY   |           4 |            4 |         2 |  4 | Shanghai Jiao Tong University Press
+ 11 | Margarita  | Bartova     | mbartova@example.com       | 1984-12-03    | Russia        | Female | 20 | Semya                           | Russia        | 2004-04-02     |   194 | DRAMA     |           5 |           13 |        11 | 13 | Books.Ru Ltd.St Petersburg
+ 15 | Loretta    | Gronaver    | lgronavere@technorati.com  | 1962-10-07    | United States | Female | 21 | Empty World                     | United States | 2008-01-04     |   324 | FANTASY   |           1 |           11 |        15 | 11 | Springer Nature
+ 10 | Hilliard   | Burnsyde    | hburnsyde9@omniture.com    | 1962-09-08    | Germany       | Male   | 22 | Domainer                        | Germany       | 2020-01-06     |   420 | ROMANCE   |           3 |            5 |        10 |  5 | Wolters Kluwer
+  4 | Brand      | Burel       | bburel3@ovh.net            | 1964-04-10    | United States | Male   | 23 | The Fault in Our Stars          | United States | 2008-02-03     |   396 | ROMANCE   |           1 |            9 |         4 |  9 | Harper Collins
+ 12 | Innis      | Hugh        | ihughb@marriott.com        | 1983-08-08    | Germany       | Male   | 24 | Die R uber                      | Germany       | 2020-06-05     |   300 | ROMANCE   |           3 |            7 |        12 |  7 | Aufbau-Verlag
+  7 | Bunni      | Aggio       | baggio6@yahoo.co.jp        | 1983-12-03    | China         | Female | 25 | Jung Chang                      | China         | 2021-05-04     |   600 | HISTORY   |           4 |           10 |         7 | 10 | China Publishing Group
+  5 | Silvan     | Smartman    | ssmartman4@spiegel.de      | 1967-07-03    | France        | Male   | 26 | Les Aventures de Tintin         | France        | 2015-04-10     |   582 | DRAMA     |           2 |            1 |         5 |  1 | RELX Group
+ 10 | Hilliard   | Burnsyde    | hburnsyde9@omniture.com    | 1962-09-08    | Germany       | Male   | 27 | Unvollendete Geschichte         | Germany       | 2010-12-12     |   269 | DETECTIVE |           3 |            5 |        10 |  5 | Wolters Kluwer
+  7 | Bunni      | Aggio       | baggio6@yahoo.co.jp        | 1983-12-03    | China         | Female | 28 | Amy Tan                         | China         | 2023-01-09     |   486 | DRAMA     |           4 |            4 |         7 |  4 | Shanghai Jiao Tong University Press
+ 11 | Margarita  | Bartova     | mbartova@example.com       | 1984-12-03    | Russia        | Female | 29 | Krasnaya luna                   | Russia        | 2020-02-07     |   550 | FANTASY   |           5 |           12 |        11 | 12 | Grupo Planeta
+ 15 | Loretta    | Gronaver    | lgronavere@technorati.com  | 1962-10-07    | United States | Female | 30 | Emma                            | United States | 2021-10-08     |   599 | BIOGRAPHY |           1 |            2 |        15 |  2 | Thomson Reuters
+ 14 | Jakob      | Bransby     | jbransbyd@nasa.gov         | 1966-08-05    | Spain         | Male   |    |                                 |               |                |       |           |             |              |           |    |
+(31 rows)
+
+
+postgres=#
+postgres=# select * from authors full join books b on authors.id=b.author_id;
+ id | first_name |  last_name  |           email            | date_of_birth |    country    | gender | id |              name               |    country    | published_year | price |   genre   | language_id | publisher_id | author_id
+----+------------+-------------+----------------------------+---------------+---------------+--------+----+---------------------------------+---------------+----------------+-------+-----------+-------------+--------------+-----------
+  6 | Alexey     | Arnov       | larnoldi5@writer.com       | 1964-12-12    | Russia        | Male   |  1 | Taina                           | Russia        | 2021-11-04     |   568 | DETECTIVE |           5 |           12 |         6
+ 11 | Margarita  | Bartova     | mbartova@example.com       | 1984-12-03    | Russia        | Female |  2 | Zvezdopad                       | Russia        | 2004-12-09     |   446 | ROMANCE   |           5 |           13 |        11
+  3 | Sonnie     | Emmens      | semmens2@upenn.edu         | 1980-05-06    | Germany       | Male   |  3 | Homo Faber                      | Germany       | 2022-04-08     |   772 | FANTASY   |           3 |            5 |         3
+ 10 | Hilliard   | Burnsyde    | hburnsyde9@omniture.com    | 1962-09-08    | Germany       | Male   |  4 | Der Richter und Sein Henker     | Germany       | 2011-02-01     |   780 | DETECTIVE |           3 |            3 |        10
+  4 | Brand      | Burel       | bburel3@ovh.net            | 1964-04-10    | United States | Male   |  5 | Lord of the Flies               | United States | 2015-07-01     |   900 | FANTASY   |           1 |            2 |         4
+  1 | Sybilla    | Toderbrugge | stoderbrugge0@jugem.jp     | 1968-09-02    | France        | Female |  6 | Un soir au club                 | France        | 2018-01-08     |   480 | DRAMA     |           2 |            1 |         1
+ 13 | Lera       | Trimnella   | ltrimnellc@msn.com         | 1980-03-08    | Russia        | Female |  7 | Voina                           | Russia        | 2004-12-06     |   880 | HISTORY   |           5 |            4 |        13
+  2 | Patti      | Walster     | pwalster1@addtoany.com     | 1965-10-01    | China         | Female |  8 | Sun Tzu                         | China         | 2022-09-05     |   349 | HISTORY   |           4 |            4 |         2
+ 10 | Hilliard   | Burnsyde    | hburnsyde9@omniture.com    | 1962-09-08    | Germany       | Male   |  9 | Emil und die Detektive          | Germany       | 2010-06-11     |   228 | DETECTIVE |           3 |            5 |        10
+  1 | Sybilla    | Toderbrugge | stoderbrugge0@jugem.jp     | 1968-09-02    | France        | Female | 10 | Coule la Seine                  | France        | 2015-03-01     |   732 | FANTASY   |           2 |            6 |         1
+ 13 | Lera       | Trimnella   | ltrimnellc@msn.com         | 1980-03-08    | Russia        | Female | 11 | Love and hatred                 | Russia        | 2012-02-03     |   763 | ROMANCE   |           5 |           14 |        13
+  8 | Viole      | Sarath      | vsarath7@elegantthemes.com | 1960-01-09    | United States | Female | 12 | Fantastic Mr Fox                | United States | 2018-03-04     |   309 | FANTASY   |           1 |            9 |         8
+  9 | Boigie     | Etridge     | betridge8@ed.gov           | 1978-11-07    | France        | Male   | 13 | Contes de la BΘcasse            | France        | 2019-10-05     |   378 | ROMANCE   |           2 |            6 |         9
+  6 | Alexey     | Arnov       | larnoldi5@writer.com       | 1964-12-12    | Russia        | Male   | 14 | "The Death of Ivan Ilyich       | Russia        | 2000-09-04     |   814 | DRAMA     |           5 |            6 |         6
+  5 | Silvan     | Smartman    | ssmartman4@spiegel.de      | 1967-07-03    | France        | Male   | 15 | Bonjour Tristesse               | France        | 2015-08-02     |   502 | ROMANCE   |           2 |            8 |         5
+ 12 | Innis      | Hugh        | ihughb@marriott.com        | 1983-08-08    | Germany       | Male   | 16 | Die Verwandlung                 | Germany       | 2008-06-09     |   305 | DETECTIVE |           3 |            7 |        12
+  3 | Sonnie     | Emmens      | semmens2@upenn.edu         | 1980-05-06    | Germany       | Male   | 17 | The Inspector Barlach Mysteries | Germany       | 2007-03-10     |   566 | DETECTIVE |           3 |            3 |         3
+  5 | Silvan     | Smartman    | ssmartman4@spiegel.de      | 1967-07-03    | France        | Male   | 18 | L╔tranger                       | France        | 2017-11-04     |   422 | ROMANCE   |           2 |            8 |         5
+  2 | Patti      | Walster     | pwalster1@addtoany.com     | 1965-10-01    | China         | Female | 19 | Lao Tse                         | China         | 2005-07-06     |   900 | FANTASY   |           4 |            4 |         2
+ 11 | Margarita  | Bartova     | mbartova@example.com       | 1984-12-03    | Russia        | Female | 20 | Semya                           | Russia        | 2004-04-02     |   194 | DRAMA     |           5 |           13 |        11
+ 15 | Loretta    | Gronaver    | lgronavere@technorati.com  | 1962-10-07    | United States | Female | 21 | Empty World                     | United States | 2008-01-04     |   324 | FANTASY   |           1 |           11 |        15
+ 10 | Hilliard   | Burnsyde    | hburnsyde9@omniture.com    | 1962-09-08    | Germany       | Male   | 22 | Domainer                        | Germany       | 2020-01-06     |   420 | ROMANCE   |           3 |            5 |        10
+  4 | Brand      | Burel       | bburel3@ovh.net            | 1964-04-10    | United States | Male   | 23 | The Fault in Our Stars          | United States | 2008-02-03     |   396 | ROMANCE   |           1 |            9 |         4
+ 12 | Innis      | Hugh        | ihughb@marriott.com        | 1983-08-08    | Germany       | Male   | 24 | Die R uber                      | Germany       | 2020-06-05     |   300 | ROMANCE   |           3 |            7 |        12
+  7 | Bunni      | Aggio       | baggio6@yahoo.co.jp        | 1983-12-03    | China         | Female | 25 | Jung Chang                      | China         | 2021-05-04     |   600 | HISTORY   |           4 |           10 |         7
+  5 | Silvan     | Smartman    | ssmartman4@spiegel.de      | 1967-07-03    | France        | Male   | 26 | Les Aventures de Tintin         | France        | 2015-04-10     |   582 | DRAMA     |           2 |            1 |         5
+ 10 | Hilliard   | Burnsyde    | hburnsyde9@omniture.com    | 1962-09-08    | Germany       | Male   | 27 | Unvollendete Geschichte         | Germany       | 2010-12-12     |   269 | DETECTIVE |           3 |            5 |        10
+  7 | Bunni      | Aggio       | baggio6@yahoo.co.jp        | 1983-12-03    | China         | Female | 28 | Amy Tan                         | China         | 2023-01-09     |   486 | DRAMA     |           4 |            4 |         7
+ 11 | Margarita  | Bartova     | mbartova@example.com       | 1984-12-03    | Russia        | Female | 29 | Krasnaya luna                   | Russia        | 2020-02-07     |   550 | FANTASY   |           5 |           12 |        11
+ 15 | Loretta    | Gronaver    | lgronavere@technorati.com  | 1962-10-07    | United States | Female | 30 | Emma                            | United States | 2021-10-08     |   599 | BIOGRAPHY |           1 |            2 |        15
+ 14 | Jakob      | Bransby     | jbransbyd@nasa.gov         | 1966-08-05    | Spain         | Male   |    |                                 |               |                |       |           |             |              |
+(31 rows)
+
+
+postgres=#
+postgres=#
+postgres=# select language ,count(name) from languages join books b on languages.id=b.langauge_id group by language order by language;
+ERROR:  column b.langauge_id does not exist
+LINE 1: ...name) from languages join books b on languages.id=b.langauge...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "b.language_id".
+postgres=# select language,count(name) from languages join books b on languages.id = b.language_id group by language order by language desc ;
+ language | count
+----------+-------
+ Russian  |     7
+ German   |     8
+ French   |     6
+ English  |     5
+ Chinese  |     4
+(5 rows)
+
+
+postgres=# select select  name,round(avg(price))from books join authors a on a.id = books.author_id group by name;
+ERROR:  syntax error at or near "select"
+LINE 1: select select  name,round(avg(price))from books join authors...
+               ^
+postgres=# select name,round(avg(price)) from books join authors a on a.id=books.author_id group by name;
+              name               | round
+---------------------------------+-------
+ Bonjour Tristesse               |   502
+ The Inspector Barlach Mysteries |   566
+ Der Richter und Sein Henker     |   780
+ Amy Tan                         |   486
+ Homo Faber                      |   772
+ Domainer                        |   420
+ Unvollendete Geschichte         |   269
+ Taina                           |   568
+ Semya                           |   194
+ Sun Tzu                         |   349
+ Emil und die Detektive          |   228
+ Les Aventures de Tintin         |   582
+ Krasnaya luna                   |   550
+ Fantastic Mr Fox                |   309
+ "The Death of Ivan Ilyich       |   814
+ Voina                           |   880
+ Zvezdopad                       |   446
+ Un soir au club                 |   480
+ Jung Chang                      |   600
+ Contes de la BΘcasse            |   378
+ Lao Tse                         |   900
+ Coule la Seine                  |   732
+ L╔tranger                       |   422
+ Die Verwandlung                 |   305
+ Empty World                     |   324
+ Love and hatred                 |   763
+ Emma                            |   599
+ Lord of the Flies               |   900
+ Die R uber                      |   300
+ The Fault in Our Stars          |   396
+(30 rows)
+
+
+postgres=# n a.id = books.author_id group by name;
+ERROR:  syntax error at or near "n"
+LINE 1: n a.id = books.author_id group by name;
+        ^
+postgres=# select published_year,concat(first_name,last_name) as full_name from books join authors a on a.id =
+postgres-# select published_year,concat(first_name,last_name as full_name from books join authors a on a.id=books.author_id where published_year between '01-01-2010' and '01-01-2015';
+postgres(# select published_year,concat(first_name,last_name as full_name from books join authors a on a.id=books.author_id where published_year between '01-01-2010' and '01-01-2015';
+postgres(# select published_year,concat(first_name,last_name) as full_name from books join authors a on a.id=books.author_id where published_year between '01-01-2010' and '01-01-2015';
+postgres(# select published_year,concat(first_name,last_name) as full_name from books join authors a on a.id=books.author_id where published_year between '01-01-2010' and '01-01-2015')));
+ERROR:  syntax error at or near "select"
+LINE 2: select published_year,concat(first_name,last_name as full_na...
+        ^
+postgres=# select concat(first_name,last_name)as full_name,sum(price)
+postgres-# from books join authors a on a.id = books.author_id where published_year  between '01-01-2010' and '01-01-2015'  group by full_name;
+    full_name     | sum
+------------------+------
+ HilliardBurnsyde | 1277
+ LeraTrimnella    |  763
+(2 rows)
+
+
+postgres=#

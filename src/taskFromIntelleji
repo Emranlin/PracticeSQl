@@ -1,0 +1,24 @@
+SELECT * FROM publishers;
+SELECT * FROM books;
+SELECT  * FROM authors;
+SELECT  * FROM  languages;
+ select  name,published_year,genre from books;
+select  distinct (country) from authors;
+select * from books where published_year between '01-01-2022' and '01-01-2023';
+select name,genre from books where genre='DETECTIVE'group by genre, name;
+select concat(first_name,last_name) as full_name,country from authors where country in ('France','Germany') order by  full_name desc;
+select name,country,published_year,price,genre from books where genre <> 'ROMANCE' and price >500;
+select gender from authors where gender='Female' fetch first 3 row only ;
+select * from authors where gender = 'Female' and email like '%com' and authors.first_name ilike'____';
+select country ,count(authors) from authors group by country;
+select genre,sum(price)from books group by genre;
+select  country,count(authors)from authors  group by country having count(country)=3 order by country;
+select genre ,min(price) from books where genre in ('DETECTIVE','ROMANCE') group by genre,price;
+select genre,count(genre)from books where genre in ('BIOGRAPHY','HISTORY') group by genre;
+select first_name,last_name,email,date_of_birth,gender from authors left join books b on authors.id = b.author_id;
+select * from authors left join books b on authors.id = b.author_id  left join publishers p on b.publisher_id = p.id ;
+select language,count(name) from languages join books b on languages.id = b.language_id group by language order by language desc ;
+select  name,round(avg(price))from books join authors a on a.id = books.author_id group by name;
+select published_year,last_name from books join authors a on a.id = books.author_id where published_year between '01-01-2010' and '01-01-2015';
+select concat(first_name,last_name)as full_name,sum(price)
+from books join authors a on a.id = books.author_id where published_year  between '01-01-2010' and '01-01-2015'  group by full_name;
